@@ -13,5 +13,12 @@ namespace RegistroCedula.Controllers
         {
             return View();
         }
+
+        /* --------------- Crear Administrador ---------------- */ 
+        public ActionResult NewAdmin()
+        {
+            return View();
+        }
+
     }
 }

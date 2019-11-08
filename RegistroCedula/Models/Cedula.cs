@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
+
 
 namespace RegistroCedula.Models
 {
@@ -41,13 +41,15 @@ namespace RegistroCedula.Models
         [DataType(DataType.Date)]
         public DateTime FechaExp { get; set; }
         [Required]
-        public SelectList Provincia { get; set; }
+        public Provincia ProvinciaID { get; set; }
         [Required]
-        public SelectList Municipio { get; set; }
+        public Municipio MunicipioID { get; set; }
         [Required]
-        public SelectList Sector { get; set; }
+        public Sector SectorID { get; set; }
         [Required]
-        public SelectList Colegio { get; set; }
+        public Colegio ColegioID { get; set; }
+
+        public Administrador Admin { get; set; }
     }
 
     public enum Nacionalidad { Dominicana, USA, Otra }
