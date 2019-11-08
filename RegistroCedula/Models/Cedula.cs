@@ -41,15 +41,23 @@ namespace RegistroCedula.Models
         [DataType(DataType.Date)]
         public DateTime FechaExp { get; set; }
         [Required]
-        public Provincia ProvinciaID { get; set; }
+        [MinLength(4)]
+        [MaxLength(15)]
+        public string Provincia { get; set; }
         [Required]
-        public Municipio MunicipioID { get; set; }
+        [MinLength(4)]
+        [MaxLength(15)]
+        public string Municipio { get; set; }
         [Required]
-        public Sector SectorID { get; set; }
+        [MinLength(4)]
+        [MaxLength(15)]
+        public string Sector { get; set; }
         [Required]
-        public Colegio ColegioID { get; set; }
-
-        public Administrador Admin { get; set; }
+        [MinLength(4)]
+        [MaxLength(15)]
+        public string Colegio { get; set; }
+        [Required]
+        public int Admin { get; set; }
     }
 
     public enum Nacionalidad { Dominicana, USA, Otra }

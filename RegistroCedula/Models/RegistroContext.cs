@@ -13,10 +13,7 @@ namespace RegistroCedula.Models
 
         }
 
-        public DbSet<Provincia> provincias { get; set; }
-        public DbSet<Municipio> municipios { get; set; }
-        public DbSet<Sector> sectors { get; set; }
-        public DbSet<Colegio> colegios { get; set; }
+        
         public DbSet<Cedula> cedulas { get; set; }
         public DbSet<Administrador> administradors { get; set; }
     }
