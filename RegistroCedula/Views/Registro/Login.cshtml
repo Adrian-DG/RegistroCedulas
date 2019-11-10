@@ -2,46 +2,93 @@
 
 @{
     ViewBag.Title = "Login";
+    Layout = null;
 }
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </head>
 
-<h2>Login</h2>
-
-
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
+<style>
+    body {
+        background: linear-gradient(to top, rgba(236,236,237,1) 43%, rgba(131,139,140,1) 100%);
+        min-height: 100vh;
+        height: auto;
+    }
+    header {
+        min-height: 40vh;
+        height: auto;
+        padding-top: 5em;   
+    }
+    main {
+        background-color: whitesmoke;
+        width: 50%;
+        height: 50vh;
+        border-radius: 10px;
+        padding: 1em;
+    }
+    .form-row {
+        margin-top: 1em;
+    }
+    .form-control { 
+        margin-top: 1em;
+    }
+    #divBtn {
+        width: 10em;
+        height: 3em;
+        margin: 1em auto;
+    }
+    .btn {
+        width: 10em;
+        height: 3em;
+        margin-bottom: 0.5em;
+    }
     
-    <div class="form-horizontal">
-        <h4>Administrador</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Usuario, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Usuario, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Usuario, "", new { @class = "text-danger" })
-            </div>
-        </div>
+</style>
+<div class="container-fluid" id="main">
+    <div class="container">
+        <header class="jumbotron-fluid">
+            <h1 class="text-center">Sistema de Registro de Identidad</h1>
+            <h3 class="text-center">SRI</h3>
+        </header>
+        <main class="container">
+            <h3 class="text-center">Iniciar Sesion</h3>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Clave, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Clave, new { htmlAttributes = new { @class = "form-control", @type="password" } })
-                @Html.ValidationMessageFor(model => model.Clave, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <div class="form-row">
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.Usuario, new { htmlAttributes = new { @class = "form-control", @placeholder = "Usuario" } })
+                        @Html.ValidationMessageFor(model => model.Usuario, "", new { @class = "text-danger" })
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
+                        @Html.EditorFor(model => model.Clave, new { htmlAttributes = new { @class = "form-control", @type = "password", @placeholder = "Clave de acceso" } })
+                        @Html.ValidationMessageFor(model => model.Clave, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-12">
+                        <div id="divBtn">
+                            <input type="submit" class="btn btn-success" />
+                            @Html.ActionLink("Nuevo Administrador", "NewAdmin", new { @class = "text-center" })
+                        </div>
+                       
+                        
+                    </div>
+                </div>
+            }
+        </main>
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>
+    
+   
+
+        
+
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

@@ -1,0 +1,141 @@
+﻿@model IEnumerable<RegistroCedula.Models.Cedula>
+
+@{
+    ViewBag.Title = "ListaRegistros";
+}
+
+
+
+
+
+<head>
+    <style>
+         header {
+        width: 100%;
+        height: 45vh;
+        background-color: gainsboro;
+        padding-top: 10%;
+    }
+    </style>
+</head>
+
+<header class="jumbotron-fluid">
+    <h1 class="text-center">Sistema de Registro de Identidad</h1>
+    <h3 class="text-center">SRI</h3>
+</header>
+<div class="table-responsive">
+    <table class="table table-hover table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.CedulaID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Apellido)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LugarNacimiento)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FechaNacimiento)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.GetNacionalidad)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.GetSexo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.GetSangre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.GetEstado)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Ocupacion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FechaExp)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Provincia)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Municipio)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Sector)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Colegio)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Admin)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CedulaID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Apellido)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LugarNacimiento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaNacimiento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GetNacionalidad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GetSexo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GetSangre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GetEstado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ocupacion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaExp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Provincia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Municipio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sector)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Colegio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Admin)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

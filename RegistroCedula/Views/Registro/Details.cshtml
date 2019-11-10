@@ -1,0 +1,187 @@
+﻿@model RegistroCedula.Models.Cedula
+
+@{
+    ViewBag.Title = "Details";
+}
+
+    <style>
+        header {
+            width: 100%;
+            height: 30vh;
+            background-color: gainsboro;
+            padding-top: 5%;
+        }
+
+        #formID {
+            background-color: rgb(247, 234, 212);
+            width: 90%;
+            min-height: 40vh;
+            height: auto;
+            margin: 2em auto;
+            border-radius: 10px;
+            padding: 1em;
+            font-weight: bold;
+        }
+
+        #escudo {
+            width: 100%;
+            height: auto;
+            margin: 1em auto;
+        }
+
+        #intro {
+            padding-top: 1em;
+        }
+
+        #jce {
+            width: 60%;
+            height: auto;
+            margin: 1em auto;
+        }
+
+        img {
+            width: 80%;
+            height: auto;
+            margin: 2em auto 0 auto;
+        }
+
+        form {
+            padding: 1em;
+        }
+
+        .row {
+            margin: 0.5em auto;
+        }
+    </style>
+
+    <header class="jumbotron-fluid">
+        <h1 class="text-center">Sistema de Registro de Identidad</h1>
+        <p class="text-center">
+            @Html.ActionLink("Editar", "Edit", new { id = Model.ID }) 
+            @Html.ActionLink("Eliminar","Delete", new { id = Model.ID })
+            @Html.ActionLink("Volver a lista", "ListaRegistros")
+        </p>
+    </header>
+
+<div id="formID" class="container">
+    <div class="row">
+        <div class="col-sm-2"><img id="escudo" src="~/IMG/escudo-dominicano.png" /></div>
+        <div id="intro" class="col-sm-8 text-center">
+            <h2>Republica Dominicana</h2>
+            <h3>Junta Central Electoral</h3>
+            <h4>Cedula de Identidad y Electoral</h4>
+        </div>
+        <div class="col-sm-2"><img id="jce" src="~/IMG/jce-logo-2.jpg" /></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 col-md-4">
+
+
+            <img src="~/IMG/Person.png" class="img-thumbnail" />
+
+
+        </div>
+        <div class="col-sm-8 col-md-8">
+            
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12">
+                                <label>Cedula:</label>
+                                @Html.DisplayFor(model => model.CedulaID)
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6">
+                                <label>Nombre:</label>
+                                @Html.DisplayFor(model => model.Nombre)
+                                @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                                <label>Apellido:</label>
+                                @Html.DisplayFor(model => model.Apellido)
+                                @Html.ValidationMessageFor(model => model.Apellido, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6">
+                                <label>Lugar Nacimiento: </label>
+                                @Html.DisplayFor(model => model.LugarNacimiento)
+                                @Html.ValidationMessageFor(model => model.LugarNacimiento, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                                <label>Fecha Nac.:</label>
+                                @Html.DisplayFor(model => model.FechaNacimiento)
+                                @Html.ValidationMessageFor(model => model.FechaNacimiento, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6">
+                                <label>Nacionalidad: </label>
+                               @Html.DisplayFor(Model => Model.GetNacionalidad)
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                                @Html.DisplayFor(model => model.GetSexo)
+                                @Html.ValidationMessageFor(model => model.GetSexo, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6">
+                                <label>Tipo de Sangre: </label>
+                                @Html.DisplayFor(model => model.GetSangre)
+                                @Html.ValidationMessageFor(model => model.GetSangre, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                                @Html.DisplayFor(model => model.GetEstado)
+                                @Html.ValidationMessageFor(model => model.GetEstado, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6">
+                                <label>Ocupacion: </label>
+                                @Html.DisplayFor(model => model.Ocupacion)
+                                @Html.ValidationMessageFor(model => model.Ocupacion, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                                <label>Fecha Exp.:</label>
+                                @Html.DisplayFor(model => model.FechaExp)
+                                @Html.ValidationMessageFor(model => model.FechaExp, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6">
+                                <label>Provincia: </label>
+                                @Html.DisplayFor(model => model.Provincia)
+                                @Html.ValidationMessageFor(model => model.Provincia, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                                <label>Municipio: </label>
+                                @Html.DisplayFor(model => model.Municipio)
+                                @Html.ValidationMessageFor(model => model.Municipio, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6">
+                                <label>Sector: </label>
+                                @Html.DisplayFor(model => model.Sector)
+                                @Html.ValidationMessageFor(model => model.Sector, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                                <label>Colegio Electoral: </label>
+                                @Html.DisplayFor(model => model.Colegio)
+                                @Html.ValidationMessageFor(model => model.Colegio, "", new { @class = "text-danger" })
+                            </div>
+                            
+                           
+                        </div>
+
+                    </div>
+                </div>
+        
+        </div>
+    </div>
+</div>
+
+
+

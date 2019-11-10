@@ -133,6 +133,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911091441010_first.cs" />
+    <Compile Include="Migrations\201911091441010_first.designer.cs">
+      <DependentUpon>201911091441010_first.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Administrador.cs" />
     <Compile Include="Models\Cedula.cs" />
     <Compile Include="Models\RegistroContext.cs" />
@@ -216,7 +221,11 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Registro\NewAdmin.cshtml" />
     <Content Include="Views\Registro\Login.cshtml" />
-    <Content Include="Views\Registro\Index.cshtml" />
+    <Content Include="Views\Registro\ListaRegistros.cshtml" />
+    <Content Include="Views\Registro\RegistrarCedula.cshtml" />
+    <Content Include="Views\Registro\Edit.cshtml" />
+    <Content Include="Views\Registro\Details.cshtml" />
+    <Content Include="Views\Registro\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -229,6 +238,11 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201911091441010_first.resx">
+      <DependentUpon>201911091441010_first.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

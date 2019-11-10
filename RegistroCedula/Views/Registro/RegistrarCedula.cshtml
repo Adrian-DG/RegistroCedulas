@@ -1,0 +1,179 @@
+﻿@model RegistroCedula.Models.Cedula
+
+@{
+    ViewBag.Title = "RegistrarCedula";
+}
+
+
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    header {
+        width: 100%;
+        height: 45vh;
+        background-color: gainsboro;
+        padding-top: 10%;
+    }
+
+    #formID {
+        background-color: rgb(247, 234, 212);
+        width: 90%;
+        min-height: 40vh;
+        height: auto;
+        margin: 2em auto;
+        border-radius: 10px;
+    }
+
+    #escudo {
+        width: 100%;
+        height: auto;
+        margin: 1em auto;
+    }
+
+    #intro {
+        padding-top: 1em;
+    }
+
+    #jce {
+        width: 60%;
+        height: auto;
+        margin: 1em auto;
+    }
+
+    img {
+        width: 80%;
+        height: auto;
+        margin: 2em auto 0 auto;
+    }
+
+    form {
+        padding: 1em;
+    }
+
+    .row {
+        margin: 0.5em auto;
+    }
+</style>
+<header class="jumbotron-fluid">
+    <h1 class="text-center">Sistema de Registro de Identidad</h1>
+    <h3 class="text-center">SRI</h3>
+    <p>Usuario: @Session["Usuario"]</p>
+</header>
+<div id="formID" class="container">
+    <div class="row">
+        <div class="col-sm-2"><img id="escudo" src="~/IMG/escudo-dominicano.png" /></div>
+        <div id="intro" class="col-sm-8 text-center">
+            <h2>Republica Dominicana</h2>
+            <h3>Junta Central Electoral</h3>
+            <h4>Cedula de Identidad y Electoral</h4>
+        </div>
+        <div class="col-sm-2"><img id="jce" src="~/IMG/jce-logo-2.jpg" /></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 col-md-4">
+
+
+            <img src="~/IMG/Person.png" class="img-thumbnail" />
+
+
+        </div>
+        <div class="col-sm-8 col-md-8">
+            @using (Html.BeginForm("RegistrarCedula", "Registro", FormMethod.Post))
+            {
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12">
+                                @Html.EditorFor(model => model.CedulaID, new { htmlAttributes = new { @class = "form-control", @placeholder = "Cedula de Identidad" } })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6">
+                                @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control", @placeholder = "Nombre" } })
+                                @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                                @Html.EditorFor(model => model.Apellido, new { htmlAttributes = new { @class = "form-control", @placeholder = "Apellido" } })
+                                @Html.ValidationMessageFor(model => model.Apellido, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6">
+                                @Html.EditorFor(model => model.LugarNacimiento, new { htmlAttributes = new { @class = "form-control", @placeholder = "Lugar de nacimiento" } })
+                                @Html.ValidationMessageFor(model => model.LugarNacimiento, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                                @Html.EditorFor(model => model.FechaNacimiento, new { htmlAttributes = new { @class = "form-control", } })
+                                @Html.ValidationMessageFor(model => model.FechaNacimiento, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6">
+                                @Html.EnumDropDownListFor(model => model.GetNacionalidad, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.GetNacionalidad, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                                @Html.EnumDropDownListFor(model => model.GetSexo, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.GetSexo, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6">
+                                @Html.EnumDropDownListFor(model => model.GetSangre, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.GetSangre, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                                @Html.EnumDropDownListFor(model => model.GetEstado, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.GetEstado, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6">
+                                @Html.EditorFor(model => model.Ocupacion, new { htmlAttributes = new { @class = "form-control", @placeholder = "Ocupacion" } })
+                                @Html.ValidationMessageFor(model => model.Ocupacion, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                                @Html.EditorFor(model => model.FechaExp, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.FechaExp, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6">
+                                @Html.EditorFor(model => model.Provincia, new { htmlAttributes = new { @class = "form-control", @placeholder = "Provincia" } })
+                                @Html.ValidationMessageFor(model => model.Provincia, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                                @Html.EditorFor(model => model.Municipio, new { htmlAttributes = new { @class = "form-control", @placeholder = "Municipio" } })
+                                @Html.ValidationMessageFor(model => model.Municipio, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3 col-md-3">
+                                @Html.EditorFor(model => model.Sector, new { htmlAttributes = new { @class = "form-control", @placeholder = "Sector" } })
+                                @Html.ValidationMessageFor(model => model.Sector, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-sm-3 col-md-3">
+                                @Html.EditorFor(model => model.Colegio, new { htmlAttributes = new { @class = "form-control", @placeholder = "Colegio" } })
+                                @Html.ValidationMessageFor(model => model.Colegio, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-sm-3 col-md-3">
+                                @Html.EditorFor(model => model.Admin, new { htmlAttributes = new { @class = "form-control", @placeholder = "Admin", @value = Session["AdminID"] } })
+                                @Html.ValidationMessageFor(model => model.Admin, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-sm-3 col-md-3">
+                                <input type="submit" class="btn btn-success btn-block" />
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

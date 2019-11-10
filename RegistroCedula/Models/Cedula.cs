@@ -10,9 +10,9 @@ namespace RegistroCedula.Models
     public class Cedula
     {
         [Key]
-        public Guid ID { get; set; }
+        public int ID { get; set; }
         [Required]
-        public Byte[] Image { get; set; }
+        public string CedulaID { get; set; }
         [Required]
         [MinLength(3)]
         [MaxLength(10)]
