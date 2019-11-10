@@ -4,9 +4,23 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<style>
+    header {
+        min-height:25vh;
+        height: auto;
+        background-color: gainsboro;
+    }
+    .form-control {
+        margin-top: 1em;
+    }
+</style>
 
-<h3>Are you sure you want to delete this?</h3>
+<header class="jumbotron text-center">
+    <h2>Delete</h2>
+
+    <h3>Are you sure you want to delete this?</h3>
+
+</header>
 @using (Html.BeginForm())
 {
     <div class="row">

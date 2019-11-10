@@ -4,62 +4,15 @@
     ViewBag.Title = "Details";
 }
 
-    <style>
-        header {
-            width: 100%;
-            height: 30vh;
-            background-color: gainsboro;
-            padding-top: 5%;
-        }
-
-        #formID {
-            background-color: rgb(247, 234, 212);
-            width: 90%;
-            min-height: 40vh;
-            height: auto;
-            margin: 2em auto;
-            border-radius: 10px;
-            padding: 1em;
-            font-weight: bold;
-        }
-
-        #escudo {
-            width: 100%;
-            height: auto;
-            margin: 1em auto;
-        }
-
-        #intro {
-            padding-top: 1em;
-        }
-
-        #jce {
-            width: 60%;
-            height: auto;
-            margin: 1em auto;
-        }
-
-        img {
-            width: 80%;
-            height: auto;
-            margin: 2em auto 0 auto;
-        }
-
-        form {
-            padding: 1em;
-        }
-
-        .row {
-            margin: 0.5em auto;
-        }
-    </style>
+   <link rel="stylesheet" href="~/Content/Site.css"/>
 
     <header class="jumbotron-fluid">
         <h1 class="text-center">Sistema de Registro de Identidad</h1>
         <p class="text-center">
-            @Html.ActionLink("Editar", "Edit", new { id = Model.ID }) 
-            @Html.ActionLink("Eliminar","Delete", new { id = Model.ID })
-            @Html.ActionLink("Volver a lista", "ListaRegistros")
+            @Html.ActionLink("Editar", "Edit", new { id = Model.ID }, new { @class = "btn btn-secondary" }) / 
+            @Html.ActionLink("Eliminar","Delete", new { id = Model.ID }, new { @class = "btn btn-danger" }) /
+            @Html.ActionLink("Volver a lista", "ListaRegistros", null, new { @class = "btn btn-secondary" }) /
+            <input type="button" class="btn btn-secondary" value="Imprimir" onclick="PrintDiv()"/>
         </p>
     </header>
 
@@ -184,4 +137,22 @@
 </div>
 
 
+<script type="text/javascript">    
+    function PrintDiv() {
+        var divContent = document.getElementById("formID").innerHTML;
+        var printWindow = window.open('', '', 'height=600', 'width=800');
 
+        printWindow.document.write('<html><head><title>Print</title><head>');
+        printWindow.document.write('<link rel="stylesheet" href="~/Content/Site.css"/>');
+        printWindow.document.write('<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">');
+        printWindow.document.write('</head><body>');
+        printWindow.document.write(divContent);
+        printWindow.document.write('</body></html>');
+
+        printWindow.document.close();
+        //printWindow.focus();
+        printWindow.print();
+        //printWindow.close();
+        return true;
+    }
+</script>

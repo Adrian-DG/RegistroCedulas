@@ -157,6 +157,7 @@ namespace RegistroCedula.Controllers
             return RedirectToAction("ListaRegistros");
         }
 
+        
 
     }
 }
