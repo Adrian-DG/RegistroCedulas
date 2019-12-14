@@ -1,0 +1,15 @@
+﻿
+
+@{
+    ViewBag.Title = "Print";
+}
+
+<header class="jumbotron">
+    <h2>Imprimir Registro</h2>
+</header>
+@using (Html.BeginForm("Details","Registro", FormMethod.Get))
+{
+    <input type="number" class="form-control" placeholder="Introduzca ID"/>
+    <input type="submit" class="btn btn-success" value="Buscar Registro"/>
+}
+

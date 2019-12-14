@@ -138,6 +138,8 @@ namespace RegistroCedula.Controllers
             
             return View(cd);
         }
+
+       
         
         [HttpGet]
         public ActionResult Delete(int ID)

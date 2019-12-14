@@ -226,6 +226,7 @@
     <Content Include="Views\Registro\Edit.cshtml" />
     <Content Include="Views\Registro\Details.cshtml" />
     <Content Include="Views\Registro\Delete.cshtml" />
+    <Content Include="Views\Registro\Print.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

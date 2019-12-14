@@ -14,7 +14,7 @@
             margin-left: 60%;
         }
         .nav-link {
-            margin: auto 2em;
+            margin: auto 2em auto 0;
         }
     </style>
 </head>
@@ -34,7 +34,7 @@
                     @Html.ActionLink("Lista Cedulas", "ListaRegistros","Registro", null, new { @class = "nav-link" })
                 </li>
                 <li class="nav-item">
-                    <input type="button" class="btn btn-light" value="Imprimir"/>
+                    @Html.ActionLink("Imprimir", "Print", "Registro", null, new { @class = "nav-link" })
                 </li>
                
             </ul>
